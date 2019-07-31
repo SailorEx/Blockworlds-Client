@@ -75,3 +75,6 @@ lad_maker*
 /DDNet*
 /AllTheHaxx*
 
+/.vs
+/bam
+/out/build/x64-Debug
