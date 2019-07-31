@@ -27,6 +27,7 @@ const char* gs_ExtrasNames[NUM_EXTRAS][EXTRATILE_DATA / 2] = { {},
 { "Level" },						//EXTRAS_INFO_LEVEL
 { "ID", "Type"},					//EXTRAS_LASERGUN,
 { "ID", "Delay"},					//EXTRAS_LASERGUN_TRIGGER,
+{ "Name" },							//EXTRAS_SELL_EFFECT
 };
 
 
@@ -57,6 +58,7 @@ int gs_ExtrasSizes[NUM_EXTRAS][EXTRATILE_DATA / 2] = { {},
 { 5 },			//EXTRAS_INFO_LEVEL
 { 3, 3 },		//EXTRAS_LASERGUN
 { 3, 5 },		//EXTRAS_LASERGUN_TRIGGER
+{ 19 },			//EXTRAS_SELL_EFFECT
 };
 
 //TODO add angles
@@ -87,4 +89,5 @@ int gs_ExtrasColumntypes[NUM_EXTRAS][EXTRATILE_DATA / 2] = { {}, // 1 = integer,
 { 1 },			//EXTRAS_INFO_LEVEL
 { 1, 1 },		//EXTRAS_LASERGUN
 { 1, 1 },		//EXTRAS_LASERGUN_TRIGGER
+{ 0 },			//EXTRAS_SELL_EFFECT
 };
