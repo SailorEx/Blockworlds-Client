@@ -263,6 +263,12 @@ struct CPoint
 	int x, y; // 22.10 fixed point
 };
 
+class CExtrasData
+{
+public:
+	char m_aData[EXTRATILE_DATA];
+};
+
 struct CColor
 {
 	int r, g, b, a;
@@ -290,12 +296,6 @@ public:
 	unsigned char m_Reserved;
 };
 
-class CExtrasData
-{
-public:
-	char m_aData[EXTRATILE_DATA];
-};
-
 struct CMapItemInfo
 {
 	int m_Version;
@@ -303,6 +303,10 @@ struct CMapItemInfo
 	int m_MapVersion;
 	int m_Credits;
 	int m_License;
+
+
+	int m_ExtrasData;
+	unsigned char m_ExtraVersion;
 } ;
 
 struct CMapItemInfoSettings : CMapItemInfo
@@ -318,6 +322,9 @@ struct CMapItemImage
 	int m_External;
 	int m_ImageName;
 	int m_ImageData;
+
+	enum { CURRENT_VERSION = 2 };
+	int m_Format;
 } ;
 
 struct CMapItemGroup_v1
@@ -344,6 +351,9 @@ struct CMapItemGroup : public CMapItemGroup_v1
 	int m_ClipH;
 
 	int m_aName[3];
+
+	int m_ExtrasData;
+	unsigned char m_ExtraVersion;
 } ;
 
 struct CMapItemLayer
@@ -370,6 +380,10 @@ struct CMapItemLayerTilemap
 	int m_Data;
 
 	int m_aName[3];
+
+
+	int m_ExtrasData;
+	unsigned char m_ExtraVersion;
 
 	// DDRace
 
@@ -412,6 +426,9 @@ struct CMapItemLayerQuads
 	int m_Image;
 
 	int m_aName[3];
+
+	int m_ExtrasData;
+	unsigned char m_ExtraVersion;
 } ;
 
 struct CMapItemVersion
@@ -499,6 +516,10 @@ struct CMapItemLayerSounds
 	int m_Sound;
 
 	int m_aName[3];
+
+	int m_ExtrasData;
+	unsigned char m_ExtraVersion;
+
 };
 
 struct CMapItemSound

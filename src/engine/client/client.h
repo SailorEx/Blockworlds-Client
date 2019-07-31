@@ -126,7 +126,7 @@ class CClient : public IClient, public CDemoPlayer::IListener
 	int64 m_PingStartTime;
 
 	char m_aCurrentMap[256];
-	char m_aCurrentMapPath[CEditor::MAX_PATH_LENGTH];
+	char m_aCurrentMapPath[CEditor::MAX_PBWC_LENGTH];
 
 	char m_aTimeoutCodes[2][32];
 	bool m_aTimeoutCodeSent[2];

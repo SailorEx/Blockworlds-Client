@@ -570,7 +570,7 @@ int CLayerTiles::RenderProperties(CUIRect *pToolBox)
 	CUIRect Button;
 
 	bool InGameGroup = !find_linear(m_pEditor->m_Map.m_pGameGroup->m_lLayers.all(), this).empty();
-	if(m_pEditor->m_Map.m_pGameLayer != this)
+	if (m_pEditor->m_Map.m_pGameLayer != this && m_Type != LAYERTYPE_EXTRAS)
 	{
 		if(m_Image >= 0 && m_Image < m_pEditor->m_Map.m_lImages.size() && m_pEditor->m_Map.m_lImages[m_Image]->m_AutoMapper.IsLoaded())
 		{

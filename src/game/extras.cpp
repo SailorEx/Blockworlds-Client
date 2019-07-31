@@ -1,0 +1,90 @@
+#include "extras.h"
+
+const char* gs_ExtrasNames[NUM_EXTRAS][EXTRATILE_DATA / 2] = { {},
+{ "ID" },							//EXTRAS_TELEPORT_FROM
+{ "ID" },							//EXTRAS_TELEPORT_TO
+{ "Force", "Max Speed", "Angle"},	//EXTRAS_SPEEDUP
+{},									//EXTRAS_FREEZE
+{},									//EXTRAS_UNFREEZE
+{ "ID", "Dir", "Dflt", "Freeze"},	//EXTRAS_DOOR
+{ "ID", "Delay", "Activate"},		//EXTRAS_DOOR_HANDLE
+{},									//
+{},									//EXTRAS_ZONE_PROTECTION
+{},									//EXTRAS_ZONE_SPAWN
+{},									//EXTRAS_ZONE_UNTOUCHABLE
+{"Name"},							//EXTRAS_MAP
+{ "Name"},							//EXTRAS_SELL_SKINMANI
+{ "Name" },							//EXTRAS_SELL_GUNDESIGN
+{ "Name" },							//EXTRAS_SELL_KNOCKOUT
+{ "Name" },							//EXTRAS_SELL_EXTRAS
+{ "Map" },							//EXTRAS_PLAYERCOUNT
+{ },								//EXTRAS_HOOKTHROUGH
+{ },								//EXTRAS_HOOKTHROUGH_TOP
+{ },								//EXTRAS_HOOKTHROUGH_BOTTOM
+{ },								//EXTRAS_HOOKTHROUGH_LEFT
+{ },								//EXTRAS_HOOKTHROUGH_RIGHT
+{},									//
+{ "Level" },						//EXTRAS_INFO_LEVEL
+{ "ID", "Type"},					//EXTRAS_LASERGUN,
+{ "ID", "Delay"},					//EXTRAS_LASERGUN_TRIGGER,
+};
+
+
+int gs_ExtrasSizes[NUM_EXTRAS][EXTRATILE_DATA / 2] = { {},
+{ 4 },			//EXTRAS_TELEPORT_FROM
+{ 4 },			//EXTRAS_TELEPORT_TO
+{ 4, 4, 5},		//EXTRAS_SPEEDUP
+{},				//EXTRAS_FREEZE
+{},				//EXTRAS_UNFREEZE
+{ 4, 2, 3, 3},	//EXTRAS_DOOR
+{ 4, 8, 3},		//EXTRAS_DOOR_HANDLE
+{},				//
+{},				//EXTRAS_ZONE_PROTECTION
+{},				//EXTRAS_ZONE_SPAWN
+{},				//EXTRAS_ZONE_UNTOUCHABLE
+{ 19 },			//EXTRAS_MAP
+{ 19 },			//EXTRAS_SELL_SKINMANI
+{ 19 },			//EXTRAS_SELL_GUNDESIGN
+{ 19 },			//EXTRAS_SELL_KNOCKOUT
+{ 19 },			//EXTRAS_SELL_EXTRAS
+{ 19 },			//EXTRAS_PLAYERCOUNT
+{ },			//EXTRAS_HOOKTHROUGH
+{ },			//EXTRAS_HOOKTHROUGH_TOP
+{ },			//EXTRAS_HOOKTHROUGH_BOTTOM
+{ },			//EXTRAS_HOOKTHROUGH_LEFT
+{ },			//EXTRAS_HOOKTHROUGH_RIGHT
+{ },			//
+{ 5 },			//EXTRAS_INFO_LEVEL
+{ 3, 3 },		//EXTRAS_LASERGUN
+{ 3, 5 },		//EXTRAS_LASERGUN_TRIGGER
+};
+
+//TODO add angles
+int gs_ExtrasColumntypes[NUM_EXTRAS][EXTRATILE_DATA / 2] = { {}, // 1 = integer, 0 = string
+{ 1 },			//EXTRAS_TELEPORT_FROM
+{ 1 },			//EXTRAS_TELEPORT_TO
+{ 1, 1, 1},		//EXTRAS_SPEEDUP
+{},				//EXTRAS_FREEZE
+{},				//EXTRAS_UNFREEZE
+{ 1, 0, 1, 1},	//EXTRAS_DOOR
+{ 1, 1, 1},		//EXTRAS_DOOR_HANDLE
+{},				//EXTRAS_ZONE_BLOCK
+{},				//EXTRAS_ZONE_PROTECTION
+{},				//EXTRAS_ZONE_SPAWN
+{},				//EXTRAS_ZONE_UNTOUCHABLE
+{ 0 },			//EXTRAS_MAP
+{ 0 },			//EXTRAS_SELL_SKINMANI
+{ 0 },			//EXTRAS_SELL_GUNDESIGN
+{ 0 },			//EXTRAS_SELL_KNOCKOUT
+{ 0 },			//EXTRAS_SELL_EXTRAS
+{ 0 },			//EXTRAS_PLAYERCOUNT
+{ },			//EXTRAS_HOOKTHROUGH
+{ },			//EXTRAS_HOOKTHROUGH_TOP
+{ },			//EXTRAS_HOOKTHROUGH_BOTTOM
+{ },			//EXTRAS_HOOKTHROUGH_RIGHT
+{ },			//EXTRAS_HOOKTHROUGH_LEFT
+{ },			//
+{ 1 },			//EXTRAS_INFO_LEVEL
+{ 1, 1 },		//EXTRAS_LASERGUN
+{ 1, 1 },		//EXTRAS_LASERGUN_TRIGGER
+};

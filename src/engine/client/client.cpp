@@ -1084,9 +1084,9 @@ void CClient::Disconnect()
 	CALLSTACK_ADD();
 
 	if(m_DummyConnected)
-		DummyDisconnect(g_Config.m_ClNamePlatesBroadcastATH ? "> AllTheHaxx < " : 0);
+		DummyDisconnect(g_Config.m_ClNamePlatesBroadcastATH ? "> BW_Client < " : 0);
 	if(m_State != IClient::STATE_OFFLINE)
-		DisconnectWithReason(g_Config.m_ClNamePlatesBroadcastATH ? "> AllTheHaxx < " : 0);
+		DisconnectWithReason(g_Config.m_ClNamePlatesBroadcastATH ? "> BW_Client < " : 0);
 }
 
 void CClient::TimeMeOut()
@@ -3740,7 +3740,7 @@ void CClient::Con_DummyDisconnect(IConsole::IResult *pResult, void *pUserData)
 	CALLSTACK_ADD();
 
 	CClient *pSelf = (CClient *)pUserData;
-	pSelf->DummyDisconnect("> AllTheHaxx < ");
+	pSelf->DummyDisconnect("> BW_Client < ");
 }
 
 void CClient::Con_Quit(IConsole::IResult *pResult, void *pUserData)
@@ -4452,7 +4452,7 @@ int main(int argc, const char **argv) // ignore_convention
 
 	// create the components
 #if defined(CONF_INSTALL_ROOT)
-	const char *pAppName = "AllTheHaxx";
+	const char *pAppName = "BW_Client";
 #else
 	const char *pAppName = "Teeworlds";
 #endif

@@ -604,6 +604,31 @@ public:
 	virtual int RenderProperties(CUIRect *pToolbox);
 };
 
+class CLayerExtras : public CLayerTiles
+ {
+public:
+	CLayerExtras(int w, int h);
+	~CLayerExtras();
+	CExtrasData * m_pExtrasData;
+	
+	void RenderColumn(CEditor * pEditor, CUIRect View, int Index);
+	
+	int RenderEditExtra(CEditor * pEditor, CUIRect View, int Index);
+	
+	virtual int BrushGrab(CLayerGroup * pBrush, CUIRect Rect);
+	virtual void FillSelection(bool Empty, CLayer * pBrush, CUIRect Rect);
+	virtual void BrushDraw(CLayer * pBrush, float wx, float wy);
+	virtual void BrushFlipX();
+	virtual void BrushFlipY();
+	virtual void BrushRotate(float Amount);
+	
+	virtual void Resize(int NewW, int NewH);
+	virtual void Shift(int Direction);
+	
+	virtual void ShowInfo();
+	virtual int RenderProperties(CUIRect * pToolbox);
+};
+
 class CEditor : public IEditor
 {
 	class IInput *m_pInput;
@@ -709,6 +734,9 @@ public:
 		ms_CursorTexture = 0;
 		ms_EntitiesTexture = 0;
 
+		m_EditingExtraX = -1;
+		m_EditingExtraY = -1;
+
 		ms_pUiGotContext = 0;
 
 		// DDRace
@@ -806,6 +834,7 @@ public:
 		FILETYPE_IMG,
 		FILETYPE_SOUND,
 
+		MAX_PBWC_LENGTH = 512,
 		MAX_PATH_LENGTH = 512
 	};
 
@@ -899,6 +928,10 @@ public:
 
 	static const void *ms_pUiGotContext;
 
+	int m_EditingExtraX;
+	int m_EditingExtraY;
+	static int ms_ExtrasPopupSize[NUM_EXTRAS][2];
+
 	CEditorMap m_Map;
 	int m_ShiftBy;
 
@@ -935,6 +968,7 @@ public:
 
 	int UiDoValueSelector(void *pID, CUIRect *pRect, const char *pLabel, int Current, int Min, int Max, int Step, float Scale, const char *pToolTip, bool isDegree=false, bool isHex=false, int corners=CUI::CORNER_ALL, vec4* color=0);
 
+	static int PopupExtras(CEditor* pEditor, CUIRect View);
 	static int PopupGroup(CEditor *pEditor, CUIRect View);
 	static int PopupLayer(CEditor *pEditor, CUIRect View);
 	static int PopupQuad(CEditor *pEditor, CUIRect View);
@@ -977,6 +1011,7 @@ public:
 
 	void DoSoundSource(CSoundSource *pSource, int Index);
 
+	void CheckExtras(float WorldX, float WorldY);
 	void DoMapEditor(CUIRect View, CUIRect Toolbar);
 	void DoToolbar(CUIRect Toolbar);
 	void DoQuad(CQuad *pQuad, int Index);
@@ -1156,6 +1191,8 @@ public:
 	virtual void ModifySoundIndex(INDEX_MODIFY_FUNC pfnFunc);
 
 	int m_Sound;
+	int m_Width;
+	int m_Height;
 	array<CSoundSource> m_lSources;
 };
 

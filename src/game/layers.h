@@ -24,7 +24,8 @@ class CLayers
 	int *m_aExtrasWidth;
 	int *m_aExtrasHeight;
 
-	void InitGameLayers();
+	//void InitGameLayers();
+	void InitGameLayer();
 	void InitExtraLayers();
 
 public:
@@ -32,6 +33,7 @@ public:
 	~CLayers();
 	void Init(class IKernel *pKernel);
 	void InitBackground(class IMap *pMap);
+	void Init(IMap* pEngineMap);
 	int NumGroups() const { return m_GroupsNum; };
 	class IMap *Map() const { return m_pMap; };
 	CMapItemGroup *GameGroup() const { return m_pGameGroup; };

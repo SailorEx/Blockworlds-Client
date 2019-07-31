@@ -5,8 +5,9 @@
 #include <base/vmath.h>
 #include <base/math.h>
 #include "layers.h"
+#include "extras.h"
 
-int gs_ExtrasSizes[NUM_EXTRAS][EXTRATILE_DATA / 2] = { {},
+/*int gs_ExtrasSizes[NUM_EXTRAS][EXTRATILE_DATA / 2] = { {},
 		{},
 		{},
 		{4, 4, 5}, //EXTRAS_SPEEDUP
@@ -34,6 +35,7 @@ int gs_ExtrasSizes[NUM_EXTRAS][EXTRATILE_DATA / 2] = { {},
 		{},
 		{},
 };
+*/
 
 
 CLayers::CLayers()
@@ -45,6 +47,10 @@ CLayers::CLayers()
 	m_pGameGroup = 0;
 	m_pGameLayer = 0;
 	m_pMap = 0;
+
+	m_NumExtrasLayer = 0;
+	m_apExtrasData = 0x0;
+	m_apExtrasTiles = 0x0;
 
 	// DDNet
 	m_pTeleLayer = 0;
@@ -75,11 +81,11 @@ void CLayers::Init(class IKernel *pKernel)
 	m_pMap->GetType(MAPITEMTYPE_GROUP, &m_GroupsStart, &m_GroupsNum);
 	m_pMap->GetType(MAPITEMTYPE_LAYER, &m_LayersStart, &m_LayersNum);
 
-	InitGameLayers();
+	InitGameLayer();
 	InitExtraLayers(); // BW
 }
 
-void CLayers::InitGameLayers()
+void CLayers::InitGameLayer()
 {
 	m_pTeleLayer = 0;
 	m_pSpeedupLayer = 0;
@@ -92,7 +98,7 @@ void CLayers::InitGameLayers()
 		CMapItemGroup *pGroup = GetGroup(g);
 		for(int l = 0; l < pGroup->m_NumLayers; l++)
 		{
-			CMapItemLayer *pLayer = GetLayer(pGroup->m_StartLayer+l);
+			CMapItemLayer *pLayer = GetLayer(pGroup->m_StartLayer + l);
 
 			if(pLayer->m_Type == LAYERTYPE_TILES)
 			{
@@ -234,6 +240,16 @@ void CLayers::InitExtraLayers()
 			}
 		}
 	}
+}
+
+void CLayers::Init(IMap* pEngineMap)
+{
+	m_pMap = pEngineMap;
+	m_pMap->GetType(MAPITEMTYPE_GROUP, &m_GroupsStart, &m_GroupsNum);
+	m_pMap->GetType(MAPITEMTYPE_LAYER, &m_LayersStart, &m_LayersNum);
+
+	InitGameLayer();
+	InitExtraLayers();
 }
 
 void CLayers::InitBackground(class IMap *pMap)
