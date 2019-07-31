@@ -21,8 +21,8 @@ CLayerExtras::CLayerExtras(int w, int h)
 	str_copy(m_aName, "Extas", sizeof(m_aName));
 	m_Game = 0;
 	m_Type = LAYERTYPE_EXTRAS;
-	
-		m_pExtrasData = new CExtrasData[m_Width * m_Height];
+	m_TexID = m_pEditor->ms_ExtrasTexture;
+	m_pExtrasData = new CExtrasData[m_Width * m_Height];
 	mem_zero(m_pExtrasData, m_Width * m_Height * sizeof(CTile));
 	}
 

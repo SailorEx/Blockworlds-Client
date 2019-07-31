@@ -40,6 +40,7 @@ int CEditor::ms_CheckerTexture;
 int CEditor::ms_BackgroundTexture;
 int CEditor::ms_CursorTexture;
 int CEditor::ms_EntitiesTexture;
+int CEditor::ms_ExtrasTexture;
 const void* CEditor::ms_pUiGotContext;
 
 int CEditor::ms_FrontTexture;
@@ -5549,6 +5550,7 @@ void CEditor::Init()
 	ms_BackgroundTexture = Graphics()->LoadTexture("editor/background.png", IStorageTW::TYPE_ALL, CImageInfo::FORMAT_AUTO, 0);
 	ms_CursorTexture = Graphics()->LoadTexture("editor/cursor.png", IStorageTW::TYPE_ALL, CImageInfo::FORMAT_AUTO, 0);
 	ms_EntitiesTexture = Graphics()->LoadTexture("editor/entities.png", IStorageTW::TYPE_ALL, CImageInfo::FORMAT_AUTO, 0);
+	ms_ExtrasTexture = Graphics()->LoadTexture("editor/extras.png", IStorageTW::TYPE_ALL, CImageInfo::FORMAT_AUTO, 0);
 
 	ms_FrontTexture = Graphics()->LoadTexture("editor/front.png", IStorageTW::TYPE_ALL, CImageInfo::FORMAT_AUTO, 0);
 	ms_TeleTexture = Graphics()->LoadTexture("editor/tele.png", IStorageTW::TYPE_ALL, CImageInfo::FORMAT_AUTO, 0);
