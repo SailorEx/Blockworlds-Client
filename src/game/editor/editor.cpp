@@ -2262,6 +2262,11 @@ void CEditor::DoMapEditor(CUIRect View, CUIRect ToolBar)
 		pEditLayers[0] = &m_TilesetPicker;
 		NumEditLayers++;
 	}
+	else if (m_ShowPicker && GetSelectedLayer(0) && GetSelectedLayer(0)->m_Type == LAYERTYPE_EXTRAS)
+	{
+		pEditLayers[0] = &m_TilesetPicker;
+		NumEditLayers++;
+	}
 	else if (m_ShowPicker)
 	{
 		pEditLayers[0] = &m_QuadsetPicker;
