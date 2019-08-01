@@ -77,4 +77,5 @@ lad_maker*
 
 /.vs
 /bam
+/.bam
 /out/build/x64-Debug
