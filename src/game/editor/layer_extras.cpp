@@ -8,17 +8,17 @@
 int CEditor::ms_ExtrasPopupSize[NUM_EXTRAS][2] = { {0,0}, { 145, 50},{ 145, 50 },{ 145, 100 }, {45, 25},{ 60, 25 },
 {145, 125}, {145, 100}, { 0, 0 },{ 85, 25 },{ 85, 25 },{ 85, 25 },{ 145, 50 },{ 145, 50 },{ 145, 50 },{ 145, 50 },
 { 145, 50 },{ 145, 50 },{ 75, 25 } ,{ 100, 25 } ,{ 95, 25 },{ 95, 25 },{ 95, 25 },{ 0, 0 },{ 145, 50 },
-{ 230, 75 }, { 145, 75 } };
+{ 230, 75 }, { 145, 75 }, { 85, 25 } };
 static const char* gs_ExtrasHeader[NUM_EXTRAS] = { 0x0, "Teleport From", "Teleport To", "Speedup", "Freeze", "Unfreeze",
 "Door", "Door Handle", "", "Protectionzone", "Spawnzone", "Untouchzone", "Map Transmission", "Sell Skinmani", "Sell Gundesign", "Sell Knockouts",
 "Sell Extras", "Playercount", "Hookthrough", "Hookthrough-Top", "Hooktrough-Bot", "Hookthrough-Left", "Hooktrough-Right", "", "Level Info",
-"Lasergun (Type: 0=Frz 1=Unfrz 2=Explode)", "Lasergun-Trigger"
+"Lasergun (Type: 0=Frz 1=Unfrz 2=Explode)", "Lasergun-Trigger", "Sell Effect"
 };
 
 CLayerExtras::CLayerExtras(int w, int h)
  : CLayerTiles(w, h)
  {
-	str_copy(m_aName, "Extas", sizeof(m_aName));
+	str_copy(m_aName, "Extras", sizeof(m_aName));
 	m_Game = 0;
 	m_Type = LAYERTYPE_EXTRAS;
 	m_TexID = m_pEditor->ms_ExtrasTexture;

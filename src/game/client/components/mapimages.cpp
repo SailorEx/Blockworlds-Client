@@ -107,6 +107,8 @@ int CMapImages::GetEntities()
 			pFile = "fng";
 		else if(IsVanilla(pInfo))
 			pFile = "vanilla";
+		else if(IsBWMod(pInfo))
+			pFile = "blockworlds";
 
 		str_copy(s_aEntitiesGameType, pInfo->m_aGameType, sizeof(s_aEntitiesGameType));
 
