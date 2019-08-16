@@ -244,27 +244,20 @@ void CLayerExtras::BrushRotate(float Amount)
 	}
 
 void CLayerExtras::Resize(int NewW, int NewH)
- {
-	CTile * pNewTiles = new CTile[NewW * NewH];
-	CExtrasData * pNewData = new CExtrasData[NewW * NewH];
-	mem_zero(pNewData, NewW * NewH * sizeof(CTile));
-	mem_zero(pNewTiles, NewW * NewH * sizeof(CExtrasData));
-	
-		   // copy old data
-		for (int y = 0; y < min(NewH, m_Height); y++)
-		 {
-		mem_copy(&pNewTiles[y * NewW], &m_pTiles[y * m_Width], min(m_Width, NewW) * sizeof(CTile));
-		mem_copy(&pNewData[y * NewW], &m_pExtrasData[y * m_Width], min(m_Width, NewW) * sizeof(CExtrasData));
-		}
-	
-		   // replace old
-		delete[] m_pTiles;
-	m_pTiles = pNewTiles;
-	delete[] m_pExtrasData;
-	m_pExtrasData = pNewData;
+{
+	CTile *pNewData = new CTile[NewW*NewH];
+	mem_zero(pNewData, NewW*NewH*sizeof(CTile));
+
+	// copy old data
+	for(int y = 0; y < min(NewH, m_Height); y++)
+		mem_copy(&pNewData[y*NewW], &m_pTiles[y*m_Width], min(m_Width, NewW)*sizeof(CTile));
+
+	// replace old
+	delete [] m_pTiles;
+	m_pTiles = pNewData;
 	m_Width = NewW;
 	m_Height = NewH;
-	}
+}
 
 void CLayerExtras::Shift(int Direction)
  {
