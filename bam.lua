@@ -173,7 +173,7 @@ server_sql_depends = {}
 
 if family == "windows" then
 	table.insert(client_depends, CopyToDirectory(".", "other/config_directory.bat"))
-	table.insert(client_depends, CopyToDirectory(".", "other/AllTheHaxx-StealthMode.bat"))
+	table.insert(client_depends, CopyToDirectory(".", "other/BW-StealthMode.bat"))
 	if platform == "win32" then
 		table.insert(client_depends, CopyToDirectory(".", "other/freetype/lib32/freetype.dll"))
 		table.insert(client_depends, CopyToDirectory(".", "other/sdl/lib32/SDL2.dll"))
@@ -484,7 +484,7 @@ function build(settings)
 
 
 	-- build client, server, version server and master server
-	client_exe = Link(client_settings, "AllTheHaxx", game_shared, game_client,
+	client_exe = Link(client_settings, "BW", game_shared, game_client,
 		engine, client, game_editor, zlib, pnglite, wavpack, aes128,
 		client_link_other, client_osxlaunch, jsonparser, jsonbuilder, libwebsockets, md5, client_notification, sqlite3, astar)
 
