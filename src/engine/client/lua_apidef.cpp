@@ -529,8 +529,6 @@ void CLuaFile::RegisterLuaCallbacks(lua_State *L) // LUABRIDGE!
 			.addData("Hook", &CNetObj_PlayerInput::m_Hook)
 			.addData("Jump", &CNetObj_PlayerInput::m_Jump)
 			.addData("WantedWeapon", &CNetObj_PlayerInput::m_WantedWeapon)
-			.addData("TargetX", &CNetObj_PlayerInput::m_AimX)
-			.addData("TargetY", &CNetObj_PlayerInput::m_AimY)
 		.endClass()
 
 		/// Game.Players(ID).Tee
@@ -577,10 +575,6 @@ void CLuaFile::RegisterLuaCallbacks(lua_State *L) // LUABRIDGE!
 			.addProperty("Hook", &CControls::GetHook, &CControls::SetHook)
 			.addProperty("Jump", &CControls::GetJump, &CControls::SetJump)
 			.addProperty("WantedWeapon", &CControls::GetWantedWeapon, &CControls::SetWantedWeapon)
-			.addProperty("TargetX", &CControls::GetTargetX, &CControls::SetTargetX)
-			.addProperty("TargetY", &CControls::GetTargetY, &CControls::SetTargetY)
-			.addProperty("MouseX", &CControls::GetMouseX, &CControls::SetMouseX)
-			.addProperty("MouseY", &CControls::GetMouseY, &CControls::SetMouseY)
 			.addFunction("SetScoreboardFlag", &CControls::SetScoreboardFlag)
 		.endClass()
 
