@@ -10,7 +10,7 @@ add_definitions("-DDO_NOT_COMPILE_THIS_CODE")
 add_definitions("-D_GNU_SOURCE")
 add_definitions("-DSDL_VIDEO_DRIVER_X11")
 #add_definitions("-DCONF_INSTALL_ROOT=\"\\\"/\\\"\"")
-add_definitions('-DCONF_INSTALL_ROOT="/"')
+#add_definitions('-DCONF_INSTALL_ROOT="/"')
 
 include_directories(
         other/sdl/include
@@ -35,7 +35,7 @@ set(EXTERNAL_SOURCES
 set(SOURCE_FILES ${EXTERNAL_SOURCES}
         src/game/generated/protocol.cpp
         src/game/generated/protocol.h
-        src/game/generated/client_data.cpp
+        #src/game/generated/client_data.cpp
         src/game/generated/client_data.h
         src/game/generated/nethash.cpp
         src/twping/twping.cpp
